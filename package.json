@@ -1,0 +1,24 @@
+{
+  "name": "employee_bloodhound",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Willyum863/Employee_bloodhound.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Willyum863/Employee_bloodhound/issues"
+  },
+  "homepage": "https://github.com/Willyum863/Employee_bloodhound#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4"
+  }
+}
