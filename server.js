@@ -3,11 +3,11 @@ const connection = require('./db/connections');
 const mysql = require('mysql2');
 
 //inquirer prompts
-function runApp() {
+function start() {
   console.log("");
   inquirer.prompt([{
         type: "list",
-        name: "nav",
+        name: "NavPrompt",
         message: "What would you like to do?",
         choices: [
           "View All Departments",
@@ -52,4 +52,12 @@ function runApp() {
     .catch(function (err) {
       console.log(err);
     });
+}
+
+//View All Departments
+function viewAllDepartments() {
+  connection.query("SELECT * FROM department", function (err, res){
+    if (err) throw err;
+    console.table()
+  })
 }
