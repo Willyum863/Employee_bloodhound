@@ -1,11 +1,11 @@
--- Department seeds
+-- Department seeds --
 INSERT INTO department (name)
 VALUES 
     ('Sales'),
     ('Accounting'),
     ('HR');
 
---Roll seeds
+--Roll seeds --
 INSERT INTO roll (title, salary, department_id)
 VALUES 
     ('Jr Sales Rep', 40000, 1),
@@ -15,7 +15,7 @@ VALUES
     ('Customer Support', 40000, 3),
     ('Human Resources', 50000, 3);
 
---Employee seeds
+--Employee seeds --
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
 VALUES
     ('Ryan', 'Howard', 1, NULL),

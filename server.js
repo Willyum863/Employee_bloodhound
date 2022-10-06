@@ -58,6 +58,11 @@ function start() {
 function viewAllDepartments() {
   connection.query("SELECT * FROM department", function (err, res){
     if (err) throw err;
-    console.table()
-  })
+    console.table('All Departments:', res);
+    start();
+  });
 }
+
+//View All Roles
+
+
