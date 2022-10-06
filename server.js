@@ -4,12 +4,12 @@ const mysql = require('mysql2');
 const cTable = require("console.table");
 
 //inquirer prompts
-function start() {
-  console.log("");
+const start = () => {
+  console.log('Employee Bloodhound');
   inquirer.prompt([{
         type: "list",
         name: "NavPrompt",
-        message: "What would you like to do?",
+        message: "How can Bloodhound help you?",
         choices: [
           "View All Departments",
           "View All Roles",
@@ -68,7 +68,7 @@ const viewAllDepartments = () => {
 
 //View All Roles
 const viewAllRoles= () => {
-  var sql = `SELECT * FROM department`;
+  var sql = `SELECT role.id, title, salary, name as department FROM role LEFT JOIN department ON role.department_id = department.id`;
   connection.query(sql, (err, res) => {
       if (err) throw err;
       console.log('All Roles:');
@@ -87,6 +87,34 @@ const viewAllEmployees = () => {
       start();
   });
 }
+
+//Add Department
+const addDepartment = () => {
+  inquirer.prompt([
+      {
+          type: 'input',
+          name: 'Department',
+          message: 'Enter Department Name',
+          validate: addDepartment => {
+              if(addDepartment) {
+                  return true;
+              } else {
+                  console.log('')
+                  return false;
+              }
+          }
+      }
+  ])
+  .then(answer => {
+      const sql = `INSERT INTO department (name)
+              VALUES (?)`;
+      connection.query(sql, answer.addDepartment, (err, res) => {
+          if (err) throw err;
+          console.log('New department ' + answer.addDepartment + ' added.')
+          viewAllDepartments();
+      });
+  });
+};
 
 start();
 
