@@ -194,6 +194,14 @@ const addEmployee = () => {
 });
 }
 
+//Update Employee Role
+
+
+const quit = () => { 
+  console.log('Thank You!');
+  process.quit();
+}
+
 
 
 start();
