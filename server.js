@@ -56,7 +56,7 @@ function start() {
 
 //View All Departments
 function viewAllDepartments() {
-  connection.query("SELECT * FROM department", function (err, res){
+  connection.query('SELECT * FROM department', function (err, res){
     if (err) throw err;
     console.table('All Departments:', res);
     start();
@@ -64,5 +64,11 @@ function viewAllDepartments() {
 }
 
 //View All Roles
-
+function viewAllRolls() {
+  connection.query('SELECT role.title, role.id, name AS department FROM role LEFT JOIN department ON role.department_id = department.id, salary', function (err, res) {
+  if (err) throw err;
+  console.table('All Roles:');
+  start();
+  });
+}
 
