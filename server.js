@@ -93,7 +93,7 @@ const addDepartment = () => {
   inquirer.prompt([
       {
           type: 'input',
-          name: 'Department',
+          name: 'department',
           message: 'Enter Department Name',
           validate: addDepartment => {
               if(addDepartment) {
